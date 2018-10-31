@@ -28,3 +28,7 @@ hs_err_pid*
 bin/
 classes/
 out/
+
+# VSCode files
+.classpath
+.project
