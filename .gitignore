@@ -30,5 +30,6 @@ classes/
 out/
 
 # VSCode files
+.vscode/
 .classpath
 .project
