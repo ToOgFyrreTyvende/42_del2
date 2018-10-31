@@ -9,7 +9,7 @@
     <version>1.0-SNAPSHOT</version>
 
     <!-- Tak til https://stackoverflow.com/questions/20457368/plugins-unrecognized-tag-in-pom-xml for at
-         give fif om at inkludere surefire-plugin config for at sørge for, at tests kører med "mvn test"-->
+         give fif om at inkludere surefire-plugin config for at sørge for, at tests kører med "mvn test" -->
     <properties>
         <maven-surefire-plugin.version>2.22.1</maven-surefire-plugin.version>
         <junit-5.version>5.3.1</junit-5.version>
