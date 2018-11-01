@@ -28,9 +28,8 @@ public class Terning {
         int sum = 0;
         for (int i = 0 ; i < antal ; i++){
             float _random1 = (float) Math.random();     // 0-1 float
-            float _random2 = _random1 * antalSider-1;   // 0-5 float
-            int _random3 = Math.round(_random2);        // 0-5 integer
-            int random = _random3 + 1;                  // 1-6 integer
+            int _random2 = (int) (_random1 * antalSider);        // 0-5 integer
+            int random = _random2 + 1;                  // 1-6 integer
             kast[i] = random;
             sum += random;
         }
