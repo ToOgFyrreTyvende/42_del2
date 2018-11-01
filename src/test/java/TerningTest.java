@@ -14,7 +14,7 @@ class TerningTest {
         int[] slag = new int[12];
 
         // Vi slår 50000 gange
-        for (int i = 1; i <= 5; i++) {
+        for (int i = 1; i <= 50000; i++) {
             int tempSlag = terning.getResultat()[2];
             slag[tempSlag - 1]++;
 
