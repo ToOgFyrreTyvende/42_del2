@@ -9,10 +9,14 @@
 
 public class Runde {
     int tur;
+
+    // #----------Constructor----------#
     Runde(){
 
     }
-    void tilfoejRunde(){
 
+    // #-------------Other-------------#
+    void tilfoejTur(){
+        tur++;
     }
 }

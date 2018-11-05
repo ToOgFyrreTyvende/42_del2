@@ -7,6 +7,8 @@
 
 public class Konto {
     int pengebeholdning;
+
+    // #----------Constructor----------#
     Konto(){
         // Default pengebeholdning: 1000.
         pengebeholdning = 1000;
@@ -15,13 +17,17 @@ public class Konto {
         // Vælg pengebeholdning selv.
         this.pengebeholdning = pengebeholdning;
     }
+
+    // #--------------Get--------------#
+    int getPenge(){
+        // Returner pengebeholdning.
+        return (pengebeholdning);
+    }
+
+    // #-------------Other-------------#
     int indsaetpenge(int penge){
         // Tilføj et antal penge til pengebeholdningen.
         pengebeholdning += penge;
-        return (pengebeholdning);
-    }
-    int getPenge(){
-        // Returner pengebeholdning.
         return (pengebeholdning);
     }
 }

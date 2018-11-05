@@ -6,7 +6,33 @@
  * ------------------------------------------------------------/
  */
 
+ // PLACEHOLDER! Skift Spiller til at initialisere ÉN spiller
+ // af gangen.
 public class Spiller {
-    String spiller1 = "Spiller 1";
-    String spiller2 = "Spiller 2";
+    int felt;
+    String spiller;
+    String navn;
+
+    // #----------Constructor----------#
+    Spiller(String navn){
+        // Vælg spiller navn selv
+        spiller = navn;
+    }
+
+    // #------------Get/Set------------#
+    int getFelt(){
+        // Returnerer nuværende felt af spiller
+        return felt;
+    }
+    int setFelt(int nyFelt){
+        // Returnerer nye felt af spiller
+        felt = nyFelt;
+        return felt;
+    }
+
+    // #--------------Get--------------#
+    String getNavn(){
+        // Returnerer spiller navn
+        return navn;
+    }
 }
