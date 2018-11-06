@@ -1,3 +1,6 @@
+import java.util.Locale;
+import java.util.ResourceBundle;
+
 public class Feltliste{
     
     static private String[][] feltliste = {    {"Tower","2-tower","250","0"},
@@ -19,5 +22,15 @@ public class Feltliste{
 
     static String getFeltTekst(int felt){
         return feltliste[felt - 1][1]; 
+    }
+
+
+    static void getLocale() {
+        Locale currentLocale = new Locale("da", "DK");
+        ResourceBundle messages = ResourceBundle.getBundle("Translation", currentLocale);
+
+        String msg1 = messages.getString("greetings");
+        System.out.println(msg1);
+        System.out.println("mems");
     }
 }
