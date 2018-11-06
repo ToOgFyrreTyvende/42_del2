@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Scanner;
 
 /**
  * ------------------------------------------------------------/ Dette er
@@ -8,9 +9,16 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        Konto konto = new Konto();
-        Terning terning = new Terning();
-        Spil spil = new Spil();
 
+        Scanner scanner = new Scanner(System.in);
+        SpilController spilCont;
+        
+        String spiller1;
+        spiller1 = scanner.next();
+
+        String spiller2;
+        spiller2 = scanner.next();
+
+        spilCont = new SpilController(spiller1, spiller2);
     }
 }

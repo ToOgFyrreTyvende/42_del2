@@ -8,6 +8,7 @@
  */
 
 public class Runde {
+    int aktivSpiller;
     int tur;
 
     // #----------Constructor----------#

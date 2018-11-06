@@ -10,13 +10,14 @@
  // af gangen.
 public class Spiller {
     int felt;
-    String spiller;
     String navn;
+    Konto konto;
 
     // #----------Constructor----------#
     Spiller(String navn){
         // Vælg spiller navn selv
-        spiller = navn;
+        this.navn = navn;
+        this.konto = new Konto();
     }
 
     // #------------Get/Set------------#
