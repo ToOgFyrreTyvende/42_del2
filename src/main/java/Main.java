@@ -14,11 +14,11 @@ public class Main {
         SpilController spilCont;
         String spiller1;
         String spiller2;
-        
+
         System.out.println(
                 "Velkommen til IOOuteractive spillet!\n" +
                 "Indtast venligst 2 spiller navne for påbegynde et spil med 2 spillere.");
-        
+
         System.out.print("Spiller 1s navn: ");
         spiller1 = scanner.nextLine();
 
