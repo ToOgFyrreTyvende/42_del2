@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 /**
  * ------------------------------------------------------------/
  * Denne klasse bruges til evt. at kunne se enhver runde
@@ -8,11 +9,16 @@
  */
 
 public class Runde {
-    int tur;
+    private ArrayList<int[]> ture;
+
+
+    // #----------Constructor----------#
     Runde(){
-
+        ture = new ArrayList<>();
     }
-    void tilfoejRunde(){
 
+    // #-------------Other-------------#
+    void tilfoejTur(int[] tur ){
+        this.ture.add(tur);
     }
 }
