@@ -1,7 +1,0 @@
-public class SpilController{
-    SpilController(){
-
-        
-
-    }
-}

@@ -10,10 +10,10 @@ public class SpilController{
     }
 
     void kastTerning(){
-        spil.spilTur();
+        System.out.println(spil.spilTur());
         Spiller aktivSpiller = spil.getAktivSpiller();
 
-        String kastFeltTekst = Feltliste.getFeltTekst(aktivSpiller.getFelt());
+        String kastFeltTekst = Feltliste.getFeltTekst(aktivSpiller.getFelt()+1);
 
         System.out.println(kastFeltTekst + "\n");
     }
