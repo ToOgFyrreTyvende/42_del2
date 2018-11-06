@@ -11,8 +11,8 @@
  */
 
 public class Terning {
-    int resultat;
-    int antalSider, antal;
+    private int resultat;
+    private int antalSider, antal;
 
     Terning() {
         this.antalSider = 6;

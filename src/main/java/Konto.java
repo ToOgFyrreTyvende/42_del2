@@ -6,7 +6,7 @@
  */
 
 public class Konto {
-    int pengebeholdning;
+    private int pengebeholdning;
 
     // #----------Constructor----------#
     Konto(){
@@ -22,6 +22,10 @@ public class Konto {
     int getPenge(){
         // Returner pengebeholdning.
         return (pengebeholdning);
+    }
+
+    void setPenge(int penge){
+        this.pengebeholdning = penge; 
     }
 
     // #-------------Other-------------#

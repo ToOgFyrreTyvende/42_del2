@@ -1,4 +1,6 @@
+import java.util.List;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * ------------------------------------------------------------/ Denne klasse er
@@ -8,42 +10,76 @@ import java.util.ArrayList;
  */
 
 public class Spil {
-    private String[][] feltliste = {    {"Tower","2-tower","250","0"},
-                                        {"Crater","3-crater","-100","0"},
-                                        {"Palace gates","4-palace gates","100","0"},
-                                        {"Cold desert","5-cold dessert","-20","0"},
-                                        {"Walled city","6-walled city","180","0"},
-                                        {"Monastery","7-monastery","0","0"},
-                                        {"Black cave","8-black cave","-70","0"},
-                                        {"Huts in the mountain","9-huts in the mountain","60","0"},
-                                        {"The Werewall","10-the werewall","-80","1"},
-                                        {"The pit","11-the pit","-50","0"},
-                                        {"Goldmine","12-goldmine","650","0"}};
-    private Spiller spiller1;
-    private Spiller spiller2;
+    private Spiller[] spillere;
     private Spiller vinder;
     private Spiller aktivSpiller;
+
+    private Terning terning;
     
-    private ArrayList<Runde> runder;
+    private List<Runde> runder;
     private Runde aktivRunde;
+    private boolean afsluttet;
 
     // #----------Constructor----------#
     Spil(String spiller1navn, String spiller2navn){
-        this.spiller1 = new Spiller(spiller1navn);
-        this.spiller2 = new Spiller(spiller2navn);
-        runder = new ArrayList<>();
+        this.spillere = new Spiller[]{
+            new Spiller(spiller1navn), 
+            new Spiller(spiller2navn)
+        };
+        //Kodedelen med runder er taget fra vores forrige opgave: 42_del1    
+        runder = new ArrayList<Runde>();
         runder.add(new Runde());
+        terning = new Terning();
 
-        aktivSpiller = spiller1;
-        
+        aktivSpiller = spillere[0];
+        aktivRunde = runder.get(runder.size()-1);
+
+        afsluttet = false;
+    }
+
+    
+    public String spilTur(){
+        if (!afsluttet) {
+            int nuIndex = java.util.Arrays.asList(spillere).indexOf(aktivSpiller);
+            int nyIndex = nuIndex == 1 ? 0 : 1;
+            int[] slag = terning.getResultat();
+            int[] tempTur = {slag[0], slag[1], slag[2], nuIndex};
+
+            Spiller _aktivSpiller = aktivSpiller;
+
+            int feltFraSlag = slag[2] - 1;
+            int pengeFraFelt = getFeltPenge(feltFraSlag);
+
+            aktivSpiller.addPenge(pengeFraFelt);
+            aktivSpiller.setFelt(feltFraSlag);
+
+            aktivRunde.tilfoejTur(tempTur);
+            //checkRunde(nuIndex); vinder skal have 3000 "penge"
+            this.aktivSpiller = spillere[nyIndex];
 
 
+            return String.format("%s rullede i alt %d.",
+                    _aktivSpiller.getNavn(), slag[2]);
+        }else{
+            return "Det nuværende spil er afsluttet.";
+        }
+    }
 
-        
+    private int getFeltPenge(int felt){
+        return Feltliste.getFeltPenge(felt);
     }
 
     // #-------------Other-------------#
-    int tilfoejRunde(){
-        return();
+    //private int tilfoejRunde(){
+    //    return();
+    //}
+ 
+    // Get/setters pls fix comments, jeg magter det ikke >:) - ahmad
+    public Spiller getAktivSpiller(){
+        return aktivSpiller;
+    }
+
+    public boolean spilAktivt(){
+        return !afsluttet;
     }
 }

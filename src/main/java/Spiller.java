@@ -9,9 +9,9 @@
  // PLACEHOLDER! Skift Spiller til at initialisere ÉN spiller
  // af gangen.
 public class Spiller {
-    int felt;
-    String navn;
-    Konto konto;
+    private int felt;
+    private String navn;
+    private Konto konto;
 
     // #----------Constructor----------#
     Spiller(String navn){
@@ -31,6 +31,17 @@ public class Spiller {
         return felt;
     }
 
+    int getPenge(){
+        return konto.getPenge();
+    }
+
+    void setPenge(int penge){
+        this.konto.setPenge(penge); 
+    }
+
+    void addPenge(int penge){
+        this.konto.indsaetpenge(penge);
+    }
     // #--------------Get--------------#
     String getNavn(){
         // Returnerer spiller navn

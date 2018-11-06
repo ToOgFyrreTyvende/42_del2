@@ -1,17 +1,11 @@
-2. Du finder et forladt tårn midt ude i skoven, som du belsutter at gennemsøge for guld. Til dit held så findet du 250 guld.
-3. Du finder et stort krater af ukendt oprindelse, du beslutter at gå direkte igennem men dit grej går i stykker på vejen og du bliver nød til at erstate det i næste by, det konster dig 100 guld i alt.
-4. Du kommer til indgangen af et stort palads, hvor du hjælpe vagterne med en problematisk borger, vagten betaler dig 100 guld for din hjælp.
-5. Du kommer til en ørken som er unaturlig kold, du beslutter at gå direkte igennem. Nær slutningen af ørken finder du en lille by hvor du beslutter at overnatte i den lokale kro, det koster dig 20 guld for en nat.
-6. Du kommer til by omringet af en stor mur, 
-
-                                {"Tower","2-tower","250","0"},
-                                {"Crater","3-crater","-100","0"},
-                                {"Palace gates","4-palace gates","100","0"},
-                                {"Cold desert","5-cold dessert","-20","0"},
-                                {"Walled city","6-walled city","180","0"},
-                                {"Monastery","7-monastery","0","0"},
-                                {"Black cave","8-black cave","-70","0"},
-                                {"Huts in the mountain","9-huts in the mountain","60","0"},
-                                {"The Werewall","10-the werewall","-80","1"},
-                                {"The pit","11-the pit","-50","0"},
-                                {"Goldmine","12-goldmine","650","0"}};
+2. Du finder en kiste i et forladt tårn og får 250 guld.
+3. Du betaler tolden på 100 guld for at krydse en bro over et krater.
+4. Du hjælper nogle vagter med en problematisk borger ved indgangen af et palads og bliver betalt 180 guld.
+5. Du betaler 20 guld for at overnatte i en kro, efter en lang rejse gennem en kold ørken.
+6. Du beskytter en befæstet by for nogle monster og får 180 guld for dit besvær.
+7. Du beder om godt held på din rejse i et kloster.
+8. Nogle tyve overfalder dig i en mørk grotte og tager 70 guld fra dig. 
+9. Du for 60 guld fra beboerne i landsby af hytter oppe i bjergene for at være den første besøgende i lang tid.
+10. Du springer over en mur lavet af varulve, du mister 80 guld men du får en ekstra tur.
+11. Du snubler ved ”Hullet” og mister 80 guld.
+12. Du finder noget guld i en guldmine som du sælger for 650 guld, du er rig!
