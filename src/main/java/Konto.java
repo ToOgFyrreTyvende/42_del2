@@ -24,6 +24,7 @@ public class Konto {
         return (pengebeholdning);
     }
 
+    // #--------------Set--------------#
     void setPenge(int penge){
         this.pengebeholdning = penge; 
     }
@@ -31,8 +32,12 @@ public class Konto {
     // #-------------Other-------------#
     int indsaetpenge(int penge){
         // Tilføj et antal penge til pengebeholdningen.
-        pengebeholdning += penge;
-        return (pengebeholdning);
+        if((pengebeholdning +  penge) > 0){
+            pengebeholdning += penge;
+            return (pengebeholdning);
+        }else{
+            return (pengebeholdning = 0);
+        }
     }
 }
 
