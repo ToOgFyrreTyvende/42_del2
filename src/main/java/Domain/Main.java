@@ -1,4 +1,5 @@
-import java.util.Arrays;
+package Domain;
+
 import java.util.Scanner;
 
 /**

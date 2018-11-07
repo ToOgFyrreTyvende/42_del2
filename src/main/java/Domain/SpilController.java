@@ -1,3 +1,5 @@
+package Domain;
+
 public class SpilController{
     private Spil spil;
     

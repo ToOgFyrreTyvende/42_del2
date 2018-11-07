@@ -1,3 +1,5 @@
+package Domain;
+
 /**
  * ------------------------------------------------------------/
  * Denne klasse kaldes for at oprette en ny spiller

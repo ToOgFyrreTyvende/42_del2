@@ -1,3 +1,5 @@
+package Domain;
+
 /**
  * ------------------------------------------------------------/
  * Denne klasse bruges til at kaste 'x' antal terninger

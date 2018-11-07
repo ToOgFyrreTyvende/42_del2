@@ -1,3 +1,5 @@
+package Domain;
+
 /**
  * ------------------------------------------------------------/
  * Denne klasse holder styr på pengebeholdningen for

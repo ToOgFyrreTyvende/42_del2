@@ -1,0 +1,43 @@
+html{
+    height: 100%;
+}
+body {
+    margin: 0 40px 0  40px;
+    height: 90vh;
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: auto 50% auto;
+    grid-gap: 5px;
+    background-color: #fff;
+    color: #444;
+    height: 80vh;
+}
+
+.box {
+    background-color: #ecf0f1;
+    color: #444444;
+    border-radius: 2px;
+    padding: 20px;
+
+}
+.box .img{
+    margin: 0 auto;
+    max-width:60%;
+}
+
+.center{
+    margin: 0 auto;
+    text-align: center;
+}
+
+#start{
+    margin: 0 auto;
+    text-align:center;
+    margin-top: 20px;
+
+}
+#start button{
+    font-size: 300%;
+}
