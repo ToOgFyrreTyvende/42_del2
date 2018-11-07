@@ -14,28 +14,41 @@
         <div class="wrapper" id="box" v-if="loaded">
             <div class="box a" style="background-color: #3498db; color: #ecf0f1;">
                 <div class="center">
-                    <input v-model="game.player1"/>
-                    <button v-on:click="setPlayerName(1, game.player1)">&#9998;</button>
+                    <input v-model="game.player1.name"/>
+                    <button v-on:click="setPlayerName(1, game.player1.name)">&#9998;</button>
                     <img src="player12.png" alt="">
                     <br>
-                    <button v-if="game.turn == 1">&#127922;</button>
+                    <span v-if="game.player1.field != 0">
+                        Gold: {{game.player1.money}} <br>
+                        Field: {{game.player1.field}}<br>
+                    </span>
+                    <button v-if="game.turn == 1" v-on:click="playRound()">&#127922;</button>
                 </div>
             </div>
 
             <div class="box b">
-                <pre v-if="game.started"></pre>
+                <div v-if="game.started">
+                    <p v-for="line in this.game.moves.slice().reverse()">
+                        {{ game.turn == 1 ? game.player1.name : game.player2.name}}
+                        {{ line }}
+                    </p>
+                </div>
                 <div v-if="!game.started" id="start">
-                    <button>START</button>
+                    <button v-on:click="startGame()">START</button>
                 </div>
             </div>
 
             <div class="box c" style="background-color: #1abc9c; color: #ecf0f1;">
                 <div class="center">
-                    <input v-model="game.player2"/>
-                    <button v-on:click="setPlayerName(2, game.player2)">&#9998;</button>
+                    <input v-model="game.player2.name"/>
+                    <button v-on:click="setPlayerName(2, game.player2.name)">&#9998;</button>
                     <img src="player22.png" alt="">
                     <br>
-                    <button v-if="game.turn == 2">&#127922;</buttonv-if>
+                    <span v-if="game.player2.field != 0">
+                        Gold: {{game.player2.money}} <br>
+                        Field: {{game.player2.field}}<br>
+                    </span>
+                    <button v-if="game.turn == 2" v-on:click="playRound()">&#127922;</buttonv-if>
                 </div>
             </div>
         </div>

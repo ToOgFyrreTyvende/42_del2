@@ -1,7 +1,7 @@
 package Web;
 
 public class Hello {
-    private String text = "Hello JSON-world";
+    private String text = "Hello JSON-rrworld";
 
     //Names MUST match property name for serialization to work!
     public String getText() {

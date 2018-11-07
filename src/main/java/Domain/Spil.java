@@ -24,7 +24,7 @@ public class Spil {
     private int vinderPenge = 3000;
 
     // #----------Constructor----------#
-    Spil(String spiller1navn, String spiller2navn){
+    public Spil(String spiller1navn, String spiller2navn){
         this.spillere = new Spiller[]{
             new Spiller(spiller1navn), 
             new Spiller(spiller2navn)
@@ -139,6 +139,15 @@ public class Spil {
         return this.vinder;
     }
 
+    public int getPenge(int spiller){
+        return this.spillere[spiller-1].getPenge();
+    }
+
+    public int getFelt(int spiller){
+        return this.spillere[spiller-1].getFelt();
+    }
+
+
     // #-------------Set---------------#
 
     private void setVinder(Spiller vinder){
@@ -157,4 +166,5 @@ public class Spil {
     private void slutSpil(){
         this.afsluttet = true;
     }
+
 }

@@ -23,7 +23,7 @@ public class Spiller {
     }
 
     // #------------Get/Set------------#
-    int getFelt(){
+    public int getFelt(){
         // Returnerer nuværende felt af spiller
         return felt;
     }
