@@ -85,7 +85,7 @@ new Vue({
                 this.game.player2.money = result.p2Cash;
                 this.game.player1.field= result.p1Field;
                 this.game.player2.field= result.p2Field;
-                this.game.moves.push(result.text)
+                this.game.moves.push([this.game.turn, result.text]);
                 this.game.turn = turn;
             }else{
                 this.game.player1.money = result.p1Cash;

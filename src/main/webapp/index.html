@@ -15,7 +15,7 @@
             <div class="box a" style="background-color: #3498db; color: #ecf0f1;">
                 <div class="center">
                     <input v-model="game.player1.name"/>
-                    <button v-on:click="setPlayerName(1, game.player1.name)">&#9998;</button>
+                    <!--button v-on:click="setPlayerName(1, game.player1.name)">&#9998;</button-->
                     <img src="player12.png" alt="">
                     <br>
                     <span v-if="game.player1.field != 0">
@@ -29,8 +29,8 @@
             <div class="box b">
                 <div v-if="game.started">
                     <p v-for="line in this.game.moves.slice().reverse()">
-                        {{ game.turn == 1 ? game.player1.name : game.player2.name}}
-                        {{ line }}
+                        {{ line[0] == 1 ? game.player1.name : game.player2.name }}:
+                        {{ line[1] }}
                     </p>
                 </div>
                 <div v-if="!game.started" id="start">
@@ -41,7 +41,7 @@
             <div class="box c" style="background-color: #1abc9c; color: #ecf0f1;">
                 <div class="center">
                     <input v-model="game.player2.name"/>
-                    <button v-on:click="setPlayerName(2, game.player2.name)">&#9998;</button>
+                    <!--button v-on:click="setPlayerName(2, game.player2.name)">&#9998;</button-->
                     <img src="player22.png" alt="">
                     <br>
                     <span v-if="game.player2.field != 0">
