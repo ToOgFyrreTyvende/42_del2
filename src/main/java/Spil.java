@@ -1,11 +1,14 @@
 import java.util.List;
+
+import stub.TerningStub;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * ------------------------------------------------------------/ Denne klasse er
- * hoveddelen der kører hele spillet og diverse klasser efter en bruger har
- * åbnet programmet
+ * ------------------------------------------------------------/ 
+ * Denne klasse er hoveddelen der kører hele spillet og diverse 
+ * klasser efter en bruger har åbnet programmet
  * ------------------------------------------------------------/
  */
 
@@ -15,10 +18,11 @@ public class Spil {
     private Spiller aktivSpiller;
 
     private Terning terning;
-    
-    private List<Runde> runder;
-    private Runde aktivRunde;
+    private List<Runde> runder    ;
+    private Runde aktivRunde;    
     private boolean afsluttet;
+
+    private int vinderPenge = 3000;
 
     // #----------Constructor----------#
     Spil(String spiller1navn, String spiller2navn){
@@ -47,7 +51,7 @@ public class Spil {
 
             Spiller _aktivSpiller = aktivSpiller;
 
-            int feltFraSlag = slag[2] - 1;
+            int feltFraSlag = slag[2] - 2;
             int pengeFraFelt = getFeltPenge(feltFraSlag);
 
             aktivSpiller.addPenge(pengeFraFelt);
@@ -57,6 +61,7 @@ public class Spil {
             //checkRunde(nuIndex); vinder skal have 3000 "penge"
             this.aktivSpiller = spillere[nyIndex];
 
+            checkRunde(nuIndex);
 
             return String.format("%s rullede i alt %d.",
                     _aktivSpiller.getNavn(), slag[2]);
@@ -65,19 +70,69 @@ public class Spil {
         }
     }
 
+    private void tjekEkstraTur() {
+        
+    }
+
+    //godt og grundigt Yoinked direkte fra vores 42_del1 af CDIO
+    private void checkRunde(int spillerIndex){
+        if (spillerIndex == spillere.length){
+            Spiller muligVinder = spillerMedPenge(vinderPenge);
+            if(muligVinder != null)
+                vinder = muligVinder;
+            else {
+                this.runder.add(new Runde());
+                this.aktivRunde   = runder.get(runder.size() - 1);
+            }
+
+        }
+    }
+
+    private Spiller spillerMedPenge(int penge){
+        int fundet = 0;
+        int res    = 0;
+
+        for(int i = 0; i < spillere.length; i++) {
+            if (spillere[i].getPenge() >= penge) {
+                fundet++;
+                res = i;
+            }
+        }
+        if (fundet == 1) {
+            return spillere[res];
+        }
+        else if (fundet > 1) {
+            if (spillere[0].getPenge() > spillere[1].getPenge()) {
+                return (spillere[0]);
+            }
+            else if (spillere[0].getPenge() < spillere[1].getPenge()){
+                return (spillere[1]);
+            }
+            else{
+                return null;
+            }
+        }
+        else
+            return null;
+    }
+
+    // #--------------Get--------------#
     private int getFeltPenge(int felt){
         return Feltliste.getFeltPenge(felt);
+    }
+ 
+    public Spiller getAktivSpiller(){
+        return aktivSpiller;
+    }
+
+    public Spiller getVinder(){
+        return this.vinder;
     }
 
     // #-------------Other-------------#
     //private int tilfoejRunde(){
     //    return();
     //}
- 
-    // Get/setters pls fix comments, jeg magter det ikke >:) - ahmad
-    public Spiller getAktivSpiller(){
-        return aktivSpiller;
-    }
 
     public boolean spilAktivt(){
         return !afsluttet;

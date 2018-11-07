@@ -37,7 +37,8 @@ public class Main {
             System.out.println(aktivSpillerNavn + "s tur, tryk enter for at kaste dine 2 terninger ↵");
 
             if(scanner.hasNextLine()){
-                spil.kastTerning();
+                String spilTekst = spil.kastTerning();
+                System.out.println(spilTekst);
                 scanner.nextLine();
             }else{
                 scanner.nextLine();

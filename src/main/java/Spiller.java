@@ -38,13 +38,15 @@ public class Spiller {
     void setPenge(int penge){
         this.konto.setPenge(penge); 
     }
-
-    void addPenge(int penge){
-        this.konto.indsaetpenge(penge);
-    }
+    
     // #--------------Get--------------#
     String getNavn(){
         // Returnerer spiller navn
         return navn;
+    }
+
+    // #-------------Other-------------#
+    void addPenge(int penge){
+        this.konto.indsaetpenge(penge);
     }
 }

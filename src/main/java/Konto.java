@@ -24,6 +24,7 @@ public class Konto {
         return (pengebeholdning);
     }
 
+    // #--------------Set--------------#
     void setPenge(int penge){
         this.pengebeholdning = penge; 
     }

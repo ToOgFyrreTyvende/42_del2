@@ -9,16 +9,16 @@ public class Feltliste{
 
     // Dette er en resource bundle, hvilket er en måde at hente tekst
     // ud fra et udgangpsunkt i forskellige sprog. Sproget er defineret ved
-    // et "locale" der eksempelvis er da-DK (danmark, dansk)
+    // et "locale" der eksempelvis er da-DK (dansk, Danmark)
     public static ResourceBundle feltTekst =
             ResourceBundle.getBundle("Translation", locale);
 
 
     /*
-    * feltListen er defineret således, at:
-    * 1. element: resource bundlens udgangspunkt så oversættelser kan findes.
-    * 2. element: forskellen der tilføjes på pengebeholdningen.
-    * 3. element: hvor vidt der gives en ekstra tur eller ej.
+    * FeltListen er defineret således, at:
+    * 1. element: Resource bundlens udgangspunkt så oversættelser kan findes.
+    * 2. element: Forskellen der tilføjes på pengebeholdningen.
+    * 3. element: Hvor vidt der gives en ekstra tur eller ej.
     * */
     static private String[][] feltliste = {
         {"Tower", "250","0"},
@@ -34,13 +34,14 @@ public class Feltliste{
         {"Goldmine","650","0"}
     };
 
+    // #--------------Get--------------#
     static int getFeltPenge(int felt){
-        int penge = Integer.parseInt(feltliste[felt - 1][2]);
+        int penge = Integer.parseInt(feltliste[felt][1]);
         return penge;
     }
 
     static String getFeltTekst(int felt){
-        return feltTekst.getString(feltliste[felt - 1][0]);
+        return feltTekst.getString(feltliste[felt][0]);
     }
 
 }

@@ -1,27 +1,45 @@
 public class SpilController{
     private Spil spil;
     
+    // #----------Constructor----------#
     SpilController(String spiller1, String spiller2){
         this.spil = new Spil(spiller1, spiller2);
     }
 
+    // #--------------Get--------------#
+    String getAktivSpiller() {
+        return this.spil.getAktivSpiller().getNavn();
+    }
+
+    // #-------------Other-------------#    
     void start() {
         System.out.println("Spillet er påbegyndt!");
     }
 
-    void kastTerning(){
-        System.out.println(spil.spilTur());
-        Spiller aktivSpiller = spil.getAktivSpiller();
-
-        String kastFeltTekst = Feltliste.getFeltTekst(aktivSpiller.getFelt()+1);
-
-        System.out.println(kastFeltTekst + "\n");
+    String kastTerning(){
+        if(!this.spil.spilAktivt()){
+            System.out.println();
+            Spiller vinder = this.spil.getVinder();
+            if(vinder != null){
+                return String.format("%s har vundet med %d guld", 
+                            vinder.getNavn(), vinder.getPenge());
+            }else{
+                return "Fejl i spillet!";
+            }
+        }else{
+            Spiller aktivSpiller = spil.getAktivSpiller();
+            String turTekst = (spil.spilTur());
+    
+            String kastFeltTekst = Feltliste.getFeltTekst(aktivSpiller.getFelt());
+    
+            return turTekst + "\n" + kastFeltTekst;
+        }
     }
 
-    String getAktivSpiller(){
-        return this.spil.getAktivSpiller().getNavn();
+    boolean spilAktivt(){
+        return spil.spilAktivt();
     }
-
+    
 //    public static void checkVinderOgSlut(Spil spil){
 //    if (spil.getVinder() != null){
 //        spil.slut();
@@ -32,8 +50,4 @@ public class SpilController{
 //            System.out.println(slutTekst);
 //        }
 //    }
-
-    boolean spilAktivt(){
-        return spil.spilAktivt();
-    }
 }

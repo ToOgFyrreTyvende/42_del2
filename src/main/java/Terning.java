@@ -14,6 +14,7 @@ public class Terning {
     private int resultat;
     private int antalSider, antal;
 
+    // #----------Constructor----------#
     Terning() {
         this.antalSider = 6;
         this.antal = 2;
@@ -22,14 +23,15 @@ public class Terning {
         this.antalSider = antalSider;
         this.antal = antal;
     }
-    // Returner en værdi af terningen.
-    int[] getResultat(){
+    
+    // #--------------Get--------------#
+    int[] getResultat(){ // Returner en værdi af terningen.
         int[] kast = new int[antal+1];
         int sum = 0;
         for (int i = 0 ; i < antal ; i++){
-            float _random1 = (float) Math.random();     // 0-1 float
-            int _random2 = (int) (_random1 * antalSider);        // 0-5 integer
-            int random = _random2 + 1;                  // 1-6 integer
+            float _random1 = (float) Math.random();         // 0-1 float
+            int _random2 = (int) (_random1 * antalSider);   // 0-5 integer
+            int random = _random2 + 1;                      // 1-6 integer
             kast[i] = random;
             sum += random;
         }
