@@ -76,28 +76,33 @@ public class Spil {
 
     //godt og grundigt Yoinked direkte fra vores 42_del1 af CDIO
     private void checkRunde(int spillerIndex){
-        if (spillerIndex == spillere.length){
-            Spiller muligVinder = spillerMedPenge(vinderPenge);
-            if(muligVinder != null)
-                vinder = muligVinder;
+        // Vi tjekker om den nuværende spiller er den sidste psiller i spiller listen. Dette gør, at 
+        // alle spillere har mulighed for at vinde i slutningen af en runde
+        if (spillerIndex == spillere.length - 1){
+            Spiller muligVinder = spillerMedPenge(1500);
+            if(muligVinder != null){
+                this.setVinder(muligVinder);
+                this.slutSpil();
+            }
             else {
                 this.runder.add(new Runde());
                 this.aktivRunde   = runder.get(runder.size() - 1);
             }
-
+            
         }
     }
-
+    
     private Spiller spillerMedPenge(int penge){
         int fundet = 0;
         int res    = 0;
-
+        
         for(int i = 0; i < spillere.length; i++) {
             if (spillere[i].getPenge() >= penge) {
                 fundet++;
                 res = i;
             }
         }
+
         if (fundet == 1) {
             return spillere[res];
         }
@@ -129,6 +134,12 @@ public class Spil {
         return this.vinder;
     }
 
+    // #-------------Set---------------#
+
+    private void setVinder(Spiller vinder){
+        this.vinder = vinder;
+    }
+
     // #-------------Other-------------#
     //private int tilfoejRunde(){
     //    return();
@@ -136,5 +147,9 @@ public class Spil {
 
     public boolean spilAktivt(){
         return !afsluttet;
+    }
+
+    private void slutSpil(){
+        this.afsluttet = true;
     }
 }

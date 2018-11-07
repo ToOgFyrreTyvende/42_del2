@@ -21,7 +21,7 @@ public class SpilController{
             System.out.println();
             Spiller vinder = this.spil.getVinder();
             if(vinder != null){
-                return String.format("%s har vundet med %d guld", 
+                return String.format("%s har vundet med %d guld!", 
                             vinder.getNavn(), vinder.getPenge());
             }else{
                 return "Fejl i spillet!";
@@ -31,8 +31,9 @@ public class SpilController{
             String turTekst = (spil.spilTur());
     
             String kastFeltTekst = Feltliste.getFeltTekst(aktivSpiller.getFelt());
+            String pengeMsg = String.format("%s har nu %d guld!\n", aktivSpiller.getNavn(), aktivSpiller.getPenge());
     
-            return turTekst + "\n" + kastFeltTekst;
+            return turTekst + "\n" + kastFeltTekst + "\n" + pengeMsg;
         }
     }
 
