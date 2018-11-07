@@ -37,6 +37,16 @@ public class SpilController{
         }
     }
 
+    String getSlutTekst(){
+        if(!this.spil.spilAktivt()){
+            Spiller vinder = this.spil.getVinder();
+            return String.format("%s har vundet med %d guld!", 
+                        vinder.getNavn(), vinder.getPenge());
+        }else{
+            return "";
+        }
+    }
+
     boolean spilAktivt(){
         return spil.spilAktivt();
     }
