@@ -21,17 +21,17 @@ public class Feltliste{
     * 3. element: Hvor vidt der gives en ekstra tur eller ej.
     * */
     static private String[][] feltliste = {
-        {"Tower", "250","0"},
-        {"Crater", "-100","0"},
-        {"PalaceGates","100","0"},
-        {"ColdDesert","-20","0"},
-        {"WalledCity","180","0"},
-        {"Monastery","0","0"},
-        {"Blackcave","-70","0"},
-        {"HutsMountain","60","0"},
-        {"Werewall","-80","1"},
-        {"Pit","-50","0"},
-        {"Goldmine","650","0"}
+        {"Tower", "250","false"},
+        {"Crater", "-100","false"},
+        {"PalaceGates","100","false"},
+        {"ColdDesert","-20","false"},
+        {"WalledCity","180","false"},
+        {"Monastery","0","false"},
+        {"Blackcave","-70","false"},
+        {"HutsMountain","60","false"},
+        {"Werewall","-80","true"},
+        {"Pit","-50","false"},
+        {"Goldmine","650","false"}
     };
 
     // #--------------Get--------------#
@@ -42,6 +42,10 @@ public class Feltliste{
 
     static String getFeltTekst(int felt){
         return feltTekst.getString(feltliste[felt][0]);
+    }
+
+    static boolean getEkstraTur(int felt){
+        return Boolean.parseBoolean(feltliste[felt][2]);
     }
 
 }

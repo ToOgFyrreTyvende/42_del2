@@ -48,20 +48,24 @@ public class Spil {
             int nyIndex = nuIndex == 1 ? 0 : 1;
             int[] slag = terning.getResultat();
             int[] tempTur = {slag[0], slag[1], slag[2], nuIndex};
+            boolean ekstraTur = false;
 
             Spiller _aktivSpiller = aktivSpiller;
 
             int feltFraSlag = slag[2] - 2;
             int pengeFraFelt = getFeltPenge(feltFraSlag);
 
+            ekstraTur = Feltliste.getEkstraTur(feltFraSlag);
+            
             aktivSpiller.addPenge(pengeFraFelt);
             aktivSpiller.setFelt(feltFraSlag);
 
             aktivRunde.tilfoejTur(tempTur);
-            //checkRunde(nuIndex); vinder skal have 3000 "penge"
             this.aktivSpiller = spillere[nyIndex];
-
+            
+            // vinder skal have 3000 guld for at vinde, dette tjekkes her
             checkRunde(nuIndex);
+            tjekEkstraTur(ekstraTur, nuIndex);
 
             return String.format("%s rullede i alt %d.",
                     _aktivSpiller.getNavn(), slag[2]);
@@ -70,8 +74,10 @@ public class Spil {
         }
     }
 
-    private void tjekEkstraTur() {
-        
+    private void tjekEkstraTur(boolean ekstraTur, int spillerIndex) {
+        if(ekstraTur){
+            aktivSpiller = spillere[spillerIndex];
+        }
     }
 
     //godt og grundigt Yoinked direkte fra vores 42_del1 af CDIO
@@ -79,7 +85,7 @@ public class Spil {
         // Vi tjekker om den nuværende spiller er den sidste psiller i spiller listen. Dette gør, at 
         // alle spillere har mulighed for at vinde i slutningen af en runde
         if (spillerIndex == spillere.length - 1){
-            Spiller muligVinder = spillerMedPenge(1500);
+            Spiller muligVinder = spillerMedPenge(vinderPenge);
             if(muligVinder != null){
                 this.setVinder(muligVinder);
                 this.slutSpil();
