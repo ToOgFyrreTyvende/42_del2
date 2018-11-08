@@ -11,6 +11,15 @@ public class SpilController{
         return this.spil.getAktivSpiller().getNavn();
     }
 
+    String getSlutTekst() {
+        if (!this.spil.spilAktivt()) {
+            Spiller vinder = this.spil.getVinder();
+            return String.format(Feltliste.feltTekst.getString("YouWon"), vinder.getNavn(), vinder.getPenge());
+        } else {
+            return "";
+        }
+    }
+
     // #-------------Other-------------#    
     void start() {
         System.out.println(Feltliste.feltTekst.getString("GameBegun"));
@@ -34,16 +43,6 @@ public class SpilController{
             String pengeMsg = String.format(Feltliste.feltTekst.getString("GetGold2"), aktivSpiller.getNavn(), aktivSpiller.getPenge());
     
             return turTekst + "\n" + kastFeltTekst + "\n" + pengeMsg;
-        }
-    }
-
-    String getSlutTekst(){
-        if(!this.spil.spilAktivt()){
-            Spiller vinder = this.spil.getVinder();
-            return String.format(Feltliste.feltTekst.getString("YouWon"),
-                        vinder.getNavn(), vinder.getPenge());
-        }else{
-            return "";
         }
     }
 
