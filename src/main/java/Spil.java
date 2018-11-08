@@ -31,7 +31,7 @@ public class Spil {
             new Spiller(spiller2navn)
         };
         //Kodedelen med runder er taget fra vores forrige opgave: 42_del1    
-        runder = new ArrayList<Runde>();
+        runder = new ArrayList<>();
         runder.add(new Runde());
         terning = new Terning();
 
@@ -48,7 +48,7 @@ public class Spil {
             int nyIndex = nuIndex == 1 ? 0 : 1;
             int[] slag = terning.getResultat();
             int[] tempTur = {slag[0], slag[1], slag[2], nuIndex};
-            boolean ekstraTur = false;
+            boolean ekstraTur;
 
             Spiller _aktivSpiller = aktivSpiller;
 
@@ -67,10 +67,10 @@ public class Spil {
             checkRunde(nuIndex);
             tjekEkstraTur(ekstraTur, nuIndex);
 
-            return String.format("%s rullede i alt %d.",
+            return String.format(Feltliste.feltTekst.getString("TurnsRolled"),
                     _aktivSpiller.getNavn(), slag[2]);
         }else{
-            return "Det nuværende spil er afsluttet.";
+            return Feltliste.feltTekst.getString("GameEnd");
         }
     }
 
@@ -147,9 +147,6 @@ public class Spil {
     }
 
     // #-------------Other-------------#
-    //private int tilfoejRunde(){
-    //    return();
-    //}
 
     public boolean spilAktivt(){
         return !afsluttet;
