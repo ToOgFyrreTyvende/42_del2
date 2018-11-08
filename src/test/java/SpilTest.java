@@ -8,7 +8,7 @@ public class SpilTest {
 
     @Test
     void vindTest(){
-        // Vi tester efter, at spiller 1 vinder med 3000 guld, mendes
+        // Vi tester efter, at spiller 1 vinder med 3000 guld, mens
         // spiller 2 har 2800
         Spiller[] spillere = spil.getSpillere();
         spillere[0].setPenge(3000);
