@@ -43,7 +43,11 @@ class TerningTest {
         // Ud fra vores normalfordeling tjekkes hvert resultat
         for (int i = 0; i < slag.length; i++) {
             int goal = dist[i];
+            double pr = (double) slag[i]/50000*100;
+            int rounded = (int) pr;
+            System.out.println((i+1) + " : "+ rounded + "%");
             assertTrue(slag[i] >= goal-2000 && slag[i] <= goal+2000);
         }
+
     }
 }

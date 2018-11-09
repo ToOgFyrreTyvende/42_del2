@@ -14,7 +14,7 @@ public class Spil {
     private Spiller aktivSpiller;
 
     private Terning terning;
-    private List<Runde> runder    ;
+    private List<Runde> runder;
     private Runde aktivRunde;    
     private boolean afsluttet;
 
