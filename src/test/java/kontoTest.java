@@ -10,7 +10,7 @@ public class kontoTest {
         assertTrue(konto.getPenge() == 1000);
 
         Konto customKonto = new Konto(42);
-        assertTrue(konto.getPenge() == 42);
+        assertTrue(customKonto.getPenge() == 42);
     }
 
     @Test
