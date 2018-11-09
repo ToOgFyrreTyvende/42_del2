@@ -6,6 +6,19 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 class TerningTest {
     Terning terning = new Terning();
+    Terning customTerning = new Terning(4, 2);
+
+    @Test
+    void getAntalSiderTest() {
+        assertTrue(terning.getAntalSider() == 6);
+        assertTrue(customTerning.getAntalSider() == 4);
+    }
+
+    @Test
+    void getAntalTest() {
+        assertTrue(terning.getAntal() == 2);
+        assertTrue(customTerning.getAntal() == 2);
+    }
 
     @Test
     void getResultat() {
