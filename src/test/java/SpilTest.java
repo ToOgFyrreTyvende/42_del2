@@ -7,6 +7,14 @@ public class SpilTest {
     Spil spil = new Spil("test1", "test2");
 
     @Test
+    void getAktivSpillerTest() {
+        Spiller spillerKontrol = spil.getSpillere()[0];
+        Spiller aktivSpiller = spil.getAktivSpiller();
+
+        assertEquals(spillerKontrol, aktivSpiller);
+    }
+
+    @Test
     void vindTest(){
         // Vi tester efter, at spiller 1 vinder med 3000 guld, mens
         // spiller 2 har 2800
