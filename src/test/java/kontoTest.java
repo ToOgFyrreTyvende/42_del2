@@ -22,7 +22,7 @@ public class kontoTest {
     }
 
     @Test
-    void kontroTest(){
+    void indsaetPengeTest(){
         Konto konto = new Konto();
         assertTrue(konto.getPenge() == 1000);
 
@@ -35,6 +35,9 @@ public class kontoTest {
         konto.indsaetpenge(-21);
         assertTrue(konto.getPenge() == 1000);
 
+        konto.setPenge(10);
+        konto.indsaetpenge(-42);
+        assertTrue(konto.getPenge() == 0);
     }
 
     @Test
