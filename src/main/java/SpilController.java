@@ -49,15 +49,5 @@ public class SpilController{
     boolean spilAktivt(){
         return spil.spilAktivt();
     }
-    
-//    public static void checkVinderOgSlut(Spil spil){
-//    if (spil.getVinder() != null){
-//        spil.slut();
-//            String slutTekst = String.format(
-//                    "%s HAR VUNDET SPILLET MED %d POINT PÅ SIN %d. TUR!!!",
-//                    spil.getVinder().getNavn(), spil.getVinder().getPoint(), spil.getRunder().size()
-//                    );
-//            System.out.println(slutTekst);
-//        }
-//    }
+
 }
