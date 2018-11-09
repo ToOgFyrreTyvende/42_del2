@@ -3,6 +3,24 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class kontoTest {
+
+    @Test
+    void getPengeTest() {
+        Konto konto = new Konto();
+        assertTrue(konto.getPenge() == 1000);
+
+        Konto customKonto = new Konto(42);
+        assertTrue(konto.getPenge() == 42);
+    }
+
+    @Test
+    void setPengeTest() {
+        Konto konto = new Konto();
+        int testInt = 42;
+        konto.setPenge(42);
+        assertTrue(konto.getPenge() == testInt);
+    }
+
     @Test
     void kontroTest(){
         Konto konto = new Konto();
@@ -19,4 +37,9 @@ public class kontoTest {
 
     }
 
+    @Test
+    void customKontoTest() {
+        Konto konto = new Konto(42);
+        assertTrue(konto.getPenge() == 42);
+    }
 }
