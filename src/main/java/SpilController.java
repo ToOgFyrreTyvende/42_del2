@@ -11,9 +11,18 @@ public class SpilController{
         return this.spil.getAktivSpiller().getNavn();
     }
 
+    String getSlutTekst() {
+        if (!this.spil.spilAktivt()) {
+            Spiller vinder = this.spil.getVinder();
+            return String.format(Feltliste.feltTekst.getString("YouWon"), vinder.getNavn(), vinder.getPenge());
+        } else {
+            return "";
+        }
+    }
+
     // #-------------Other-------------#    
     void start() {
-        System.out.println("Spillet er påbegyndt!");
+        System.out.println(Feltliste.feltTekst.getString("GameBegun"));
     }
 
     String kastTerning(){
@@ -21,44 +30,24 @@ public class SpilController{
             System.out.println();
             Spiller vinder = this.spil.getVinder();
             if(vinder != null){
-                return String.format("%s har vundet med %d guld!", 
+                return String.format(Feltliste.feltTekst.getString("GetGold"),
                             vinder.getNavn(), vinder.getPenge());
             }else{
-                return "Fejl i spillet!";
+                return Feltliste.feltTekst.getString("GameError");
             }
         }else{
             Spiller aktivSpiller = spil.getAktivSpiller();
             String turTekst = (spil.spilTur());
     
             String kastFeltTekst = Feltliste.getFeltTekst(aktivSpiller.getFelt());
-            String pengeMsg = String.format("%s har nu %d guld!\n", aktivSpiller.getNavn(), aktivSpiller.getPenge());
+            String pengeMsg = String.format(Feltliste.feltTekst.getString("GetGold2"), aktivSpiller.getNavn(), aktivSpiller.getPenge());
     
             return turTekst + "\n" + kastFeltTekst + "\n" + pengeMsg;
-        }
-    }
-
-    String getSlutTekst(){
-        if(!this.spil.spilAktivt()){
-            Spiller vinder = this.spil.getVinder();
-            return String.format("%s har vundet med %d guld!", 
-                        vinder.getNavn(), vinder.getPenge());
-        }else{
-            return "";
         }
     }
 
     boolean spilAktivt(){
         return spil.spilAktivt();
     }
-    
-//    public static void checkVinderOgSlut(Spil spil){
-//    if (spil.getVinder() != null){
-//        spil.slut();
-//            String slutTekst = String.format(
-//                    "%s HAR VUNDET SPILLET MED %d POINT PÅ SIN %d. TUR!!!",
-//                    spil.getVinder().getNavn(), spil.getVinder().getPoint(), spil.getRunder().size()
-//                    );
-//            System.out.println(slutTekst);
-//        }
-//    }
+
 }

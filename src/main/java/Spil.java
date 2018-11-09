@@ -1,9 +1,5 @@
-import java.util.List;
-
-import stub.TerningStub;
-
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.List;
 
 /**
  * ------------------------------------------------------------/ 
@@ -18,7 +14,7 @@ public class Spil {
     private Spiller aktivSpiller;
 
     private Terning terning;
-    private List<Runde> runder    ;
+    private List<Runde> runder;
     private Runde aktivRunde;    
     private boolean afsluttet;
 
@@ -31,7 +27,7 @@ public class Spil {
             new Spiller(spiller2navn)
         };
         //Kodedelen med runder er taget fra vores forrige opgave: 42_del1    
-        runder = new ArrayList<Runde>();
+        runder = new ArrayList<>();
         runder.add(new Runde());
         terning = new Terning();
 
@@ -48,7 +44,7 @@ public class Spil {
             int nyIndex = nuIndex == 1 ? 0 : 1;
             int[] slag = terning.getResultat();
             int[] tempTur = {slag[0], slag[1], slag[2], nuIndex};
-            boolean ekstraTur = false;
+            boolean ekstraTur;
 
             Spiller _aktivSpiller = aktivSpiller;
 
@@ -67,21 +63,21 @@ public class Spil {
             checkRunde(nuIndex);
             tjekEkstraTur(ekstraTur, nuIndex);
 
-            return String.format("%s rullede i alt %d.",
+            return String.format(Feltliste.feltTekst.getString("TurnsRolled"),
                     _aktivSpiller.getNavn(), slag[2]);
         }else{
-            return "Det nuværende spil er afsluttet.";
+            return Feltliste.feltTekst.getString("GameEnd");
         }
     }
 
-    private void tjekEkstraTur(boolean ekstraTur, int spillerIndex) {
+    public void tjekEkstraTur(boolean ekstraTur, int spillerIndex) {
         if(ekstraTur){
             aktivSpiller = spillere[spillerIndex];
         }
     }
 
     //godt og grundigt Yoinked direkte fra vores 42_del1 af CDIO
-    private void checkRunde(int spillerIndex){
+    public void checkRunde(int spillerIndex){
         // Vi tjekker om den nuværende spiller er den sidste psiller i spiller listen. Dette gør, at 
         // alle spillere har mulighed for at vinde i slutningen af en runde
         if (spillerIndex == spillere.length - 1){
@@ -140,6 +136,12 @@ public class Spil {
         return this.vinder;
     }
 
+    public Spiller[] getSpillere() {
+        return this.spillere;
+    }
+
+    public int getVinderPenge(){ return vinderPenge; }
+
     // #-------------Set---------------#
 
     private void setVinder(Spiller vinder){
@@ -147,9 +149,6 @@ public class Spil {
     }
 
     // #-------------Other-------------#
-    //private int tilfoejRunde(){
-    //    return();
-    //}
 
     public boolean spilAktivt(){
         return !afsluttet;

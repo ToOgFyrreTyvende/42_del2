@@ -17,6 +17,11 @@ public class Runde {
         ture = new ArrayList<>();
     }
 
+    // #--------------Get--------------#
+    public ArrayList<int[]> getTure() {
+        return ture;
+    }
+
     // #-------------Other-------------#
     void tilfoejTur(int[] tur ){
         this.ture.add(tur);

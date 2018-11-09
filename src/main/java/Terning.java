@@ -39,4 +39,11 @@ public class Terning {
         return kast;
     }
 
+    public int getAntalSider() {
+        return antalSider;
+    }
+
+    public int getAntal() {
+        return antal;
+    }
 }
