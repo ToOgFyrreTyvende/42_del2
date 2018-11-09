@@ -1,9 +1,5 @@
-import java.util.List;
-
-import stub.TerningStub;
-
 import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.List;
 
 /**
  * ------------------------------------------------------------/ 
@@ -74,14 +70,14 @@ public class Spil {
         }
     }
 
-    private void tjekEkstraTur(boolean ekstraTur, int spillerIndex) {
+    public void tjekEkstraTur(boolean ekstraTur, int spillerIndex) {
         if(ekstraTur){
             aktivSpiller = spillere[spillerIndex];
         }
     }
 
     //godt og grundigt Yoinked direkte fra vores 42_del1 af CDIO
-    private void checkRunde(int spillerIndex){
+    public void checkRunde(int spillerIndex){
         // Vi tjekker om den nuværende spiller er den sidste psiller i spiller listen. Dette gør, at 
         // alle spillere har mulighed for at vinde i slutningen af en runde
         if (spillerIndex == spillere.length - 1){
@@ -139,6 +135,12 @@ public class Spil {
     public Spiller getVinder(){
         return this.vinder;
     }
+
+    public Spiller[] getSpillere() {
+        return this.spillere;
+    }
+
+    public int getVinderPenge(){ return vinderPenge; }
 
     // #-------------Set---------------#
 
